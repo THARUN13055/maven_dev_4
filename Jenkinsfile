@@ -1,3 +1,5 @@
+@Library('my-shared-library') _
+
 pipeline{
     agent any
     tools {
@@ -7,7 +9,10 @@ pipeline{
         stage('Git checkout'){
             steps{
                 script{
-                    git branch: 'main', url: 'https://github.com/THARUN13055/maven_dev_4.git'
+                    gitCheckout(
+                        branch: "main"
+                        url: 'https://github.com/THARUN13055/maven_dev_4.git'
+                    )
                 }
             }
         }
