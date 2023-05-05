@@ -67,11 +67,19 @@ pipeline{
         //         }
         //     }
         // }
-        stage('docker push'){
+        // stage('docker push'){
+        //     when { expression { params.action == 'create' } }
+        //     steps{
+        //         script{
+        //             dockerpush("${params.imageName}", "${params.imagetag}", "${params.hubname}")
+        //         }
+        //     }
+        // }
+        stage('docker image remove'){
             when { expression { params.action == 'create' } }
             steps{
                 script{
-                    dockerpush("${params.imageName}", "${params.imagetag}", "${params.hubname}")
+                    dockerimageremove("${params.imageName}", "${params.imagetag}", "${params.hubname}")
                 }
             }
         }
