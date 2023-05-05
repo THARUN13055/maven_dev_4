@@ -10,7 +10,7 @@ pipeline{
             steps{
                 script{
                     gitCheckout(
-                        branch: "main"
+                        branch: "main",
                         url: "https://github.com/THARUN13055/maven_dev_4.git"
                     )
                 }
