@@ -7,7 +7,7 @@ pipeline{
     parameters{
         choice(name: 'action', choices: 'create\ndelete', description: 'choose create/Destroy')
         string(name: 'imageName', description: "this is the image", defaultValue: 'java-app')
-        string(name: 'tag', description: "this is the tags", defaultValue: 'v1')
+        string(name: 'imagetag', description: "this is the tags", defaultValue: 'v1')
         string(name: 'hubname', description: "this is the dockerhubname", defaultValue: 'tharun13055')
     }
 
@@ -55,7 +55,7 @@ pipeline{
             when { expression { params.action == 'create' } }
             steps{
                 script{
-                    dockerPush("${params.imageName}", "${params.imageTag}", "${params.hubname}")
+                    dockerPush("${params.imageName}", "${params.imagetag}", "${params.hubname}")
                 }
             }
         }
