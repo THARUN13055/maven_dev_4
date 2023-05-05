@@ -51,14 +51,14 @@ pipeline{
         //         }
         //     }
         // }
-        // stage('docker image create'){
-        //     when { expression { params.action == 'create' } }
-        //     steps{
-        //         script{
-        //             dockerbuild("${params.imageName}", "${params.imagetag}", "${params.hubname}")
-        //         }
-        //     }
-        // }
+        stage('docker image create'){
+            when { expression { params.action == 'create' } }
+            steps{
+                script{
+                    dockerbuild("${params.imageName}", "${params.imagetag}", "${params.hubname}")
+                }
+            }
+        }
         // stage('trivy scan'){
         //     when { expression { params.action == 'create' } }
         //     steps{
