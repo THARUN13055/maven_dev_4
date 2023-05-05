@@ -13,60 +13,60 @@ pipeline{
 
     stages{
 
-        stage('Git checkout'){
-            when { expression { params.action == 'create' } }
-            steps{
-                script{
-                    gitCheckout(
-                        branch: "main",
-                        url: "https://github.com/THARUN13055/maven_dev_4.git"
-                    )
-                }
-            }
-        }
+        // stage('Git checkout'){
+        //     when { expression { params.action == 'create' } }
+        //     steps{
+        //         script{
+        //             gitCheckout(
+        //                 branch: "main",
+        //                 url: "https://github.com/THARUN13055/maven_dev_4.git"
+        //             )
+        //         }
+        //     }
+        // }
 
-        stage('Maven test'){
-            when { expression { params.action == 'create' } }
-            steps{
-                script{
-                    mvnTest()
-                }
-            }
-        }
+        // stage('Maven test'){
+        //     when { expression { params.action == 'create' } }
+        //     steps{
+        //         script{
+        //             mvnTest()
+        //         }
+        //     }
+        // }
 
-        stage('Maven Integration test'){
-            when { expression { params.action == 'create' } }
-            steps{
-                script{
-                    integrationTest()
-                }
-            }
-        }
+        // stage('Maven Integration test'){
+        //     when { expression { params.action == 'create' } }
+        //     steps{
+        //         script{
+        //             integrationTest()
+        //         }
+        //     }
+        // }
 
-        stage('Maven Install'){
-            when { expression { params.action == 'create' } }
-            steps{
-                script{
-                    mvnUnitTest()
-                }
-            }
-        }
-        stage('docker image create'){
-            when { expression { params.action == 'create' } }
-            steps{
-                script{
-                    dockerbuild("${params.imageName}", "${params.imagetag}", "${params.hubname}")
-                }
-            }
-        }
-        stage('trivy scan'){
-            when { expression { params.action == 'create' } }
-            steps{
-                script{
-                    trivyScan("${params.imageName}", "${params.imagetag}", "${params.hubname}")
-                }
-            }
-        }
+        // stage('Maven Install'){
+        //     when { expression { params.action == 'create' } }
+        //     steps{
+        //         script{
+        //             mvnUnitTest()
+        //         }
+        //     }
+        // }
+        // stage('docker image create'){
+        //     when { expression { params.action == 'create' } }
+        //     steps{
+        //         script{
+        //             dockerbuild("${params.imageName}", "${params.imagetag}", "${params.hubname}")
+        //         }
+        //     }
+        // }
+        // stage('trivy scan'){
+        //     when { expression { params.action == 'create' } }
+        //     steps{
+        //         script{
+        //             trivyScan("${params.imageName}", "${params.imagetag}", "${params.hubname}")
+        //         }
+        //     }
+        // }
         stage('docker push'){
             when { expression { params.action == 'create' } }
             steps{
