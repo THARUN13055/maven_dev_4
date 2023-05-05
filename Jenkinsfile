@@ -11,7 +11,7 @@ pipeline{
         string(name: 'hubname', description: "this is the dockerhubname", defaultValue: 'tharun13055')
     }
 
-    // stages{
+    stages{
 
     //     stage('Git checkout'){
     //         when { expression { params.action == 'create' } }
