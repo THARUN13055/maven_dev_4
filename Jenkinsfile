@@ -11,46 +11,46 @@ pipeline{
         string(name: 'hubname', description: "this is the dockerhubname", defaultValue: 'tharun13055')
     }
 
-    stages{
+    // stages{
 
-        stage('Git checkout'){
-            when { expression { params.action == 'create' } }
-            steps{
-                script{
-                    gitCheckout(
-                        branch: "main",
-                        url: "https://github.com/THARUN13055/maven_dev_4.git"
-                    )
-                }
-            }
-        }
+    //     stage('Git checkout'){
+    //         when { expression { params.action == 'create' } }
+    //         steps{
+    //             script{
+    //                 gitCheckout(
+    //                     branch: "main",
+    //                     url: "https://github.com/THARUN13055/maven_dev_4.git"
+    //                 )
+    //             }
+    //         }
+    //     }
 
-        stage('Maven test'){
-            when { expression { params.action == 'create' } }
-            steps{
-                script{
-                    mvnTest()
-                }
-            }
-        }
+    //     stage('Maven test'){
+    //         when { expression { params.action == 'create' } }
+    //         steps{
+    //             script{
+    //                 mvnTest()
+    //             }
+    //         }
+    //     }
 
-        stage('Maven Integration test'){
-            when { expression { params.action == 'create' } }
-            steps{
-                script{
-                    integrationTest()
-                }
-            }
-        }
+    //     stage('Maven Integration test'){
+    //         when { expression { params.action == 'create' } }
+    //         steps{
+    //             script{
+    //                 integrationTest()
+    //             }
+    //         }
+    //     }
 
-        stage('Maven Install'){
-            when { expression { params.action == 'create' } }
-            steps{
-                script{
-                    mvnUnitTest()
-                }
-            }
-        }
+    //     stage('Maven Install'){
+    //         when { expression { params.action == 'create' } }
+    //         steps{
+    //             script{
+    //                 mvnUnitTest()
+    //             }
+    //         }
+    //     }
         stage('docker image create'){
             when { expression { params.action == 'create' } }
             steps{
