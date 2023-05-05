@@ -9,7 +9,7 @@ pipeline{
     }
 
     stages{
-        when{ expression { params.action == 'create' } }
+        when { expression { params.action == 'create' } }
         stage('Git checkout'){
             steps{
                 script{
@@ -20,7 +20,7 @@ pipeline{
                 }
             }
         }
-        when{ expression { params.action == 'create' } }
+        when { expression { params.action == 'create' } }
         stage('Maven test'){
             steps{
                 script{
@@ -28,7 +28,7 @@ pipeline{
                 }
             }
         }
-        when{ expression { params.action == 'create' } }
+        when { expression { params.action == 'create' } }
         stage('Maven Integration test'){
             steps{
                 script{
@@ -36,7 +36,7 @@ pipeline{
                 }
             }
         }
-        when{ expression { params.action == 'create' } }
+        when { expression { params.action == 'create' } }
         stage('Maven Install'){
             steps{
                 script{
