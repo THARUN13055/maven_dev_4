@@ -48,5 +48,17 @@ pipeline{
                 }
             }
         }
+        stage('docker image create'){
+            when { expression { params.action == 'create' } }
+            steps{
+                script{
+                    dockerPush(
+                        hubUser: "tharun13055",
+                        project: "java-app",
+                        imageTag: "v1"
+                    )
+                }
+            }
+        }
     }
 }
