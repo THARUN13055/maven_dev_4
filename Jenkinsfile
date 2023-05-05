@@ -9,8 +9,9 @@ pipeline{
     }
 
     stages{
-        when { expression { params.action == 'create' } }
+
         stage('Git checkout'){
+            when { expression { params.action == 'create' } }
             steps{
                 script{
                     gitCheckout(
@@ -20,24 +21,27 @@ pipeline{
                 }
             }
         }
-        when { expression { params.action == 'create' } }
+
         stage('Maven test'){
+            when { expression { params.action == 'create' } }
             steps{
                 script{
                     mvnTest()
                 }
             }
         }
-        when { expression { params.action == 'create' } }
+
         stage('Maven Integration test'){
+            when { expression { params.action == 'create' } }
             steps{
                 script{
                     integrationTest()
                 }
             }
         }
-        when { expression { params.action == 'create' } }
+
         stage('Maven Install'){
+            when { expression { params.action == 'create' } }
             steps{
                 script{
                     mvnUnitTest()
