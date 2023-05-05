@@ -11,7 +11,7 @@ pipeline{
                 script{
                     gitCheckout(
                         branch: "main"
-                        url: 'https://github.com/THARUN13055/maven_dev_4.git'
+                        url: "https://github.com/THARUN13055/maven_dev_4.git"
                     )
                 }
             }
