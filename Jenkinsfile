@@ -59,5 +59,13 @@ pipeline{
                 }
             }
         }
+        stage('trivy scan'){
+            when { expression { params.action == 'create' } }
+            steps{
+                script{
+                    trivyScan("${params.imageName}", "${params.imagetag}", "${params.hubname}")
+                }
+            }
+        }
     }
 }
