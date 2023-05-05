@@ -6,9 +6,9 @@ pipeline{
 
     parameters{
         choice(name: 'action', choices: 'create\ndelete', description: 'choose create/Destroy')
-        string(name: 'imageName', description: "this is the image", defaultvalue: "java-app")
-        string(name: 'hubname', description: "this is the dockerhubname", defaultvalue: "tharun13055")
-        string(name: 'tag', description: "this is the tags", defaultvalue: "v1")
+        string(name: 'imageName', description: "this is the image", defaultvalue: 'java-app')
+        string(name: 'hubname', description: "this is the dockerhubname", defaultvalue: 'tharun13055')
+        string(name: 'tag', description: "this is the tags", defaultvalue: 'v1')
     }
 
     stages{
