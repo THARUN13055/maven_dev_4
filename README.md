@@ -71,13 +71,13 @@ mvn clean install
 # For all this Installation Use This 'wget'
 
 ```bash
-git clone wget https://raw.githubusercontent.com/THARUN13055/quick_install_linux/main/pacman.py
+wget https://raw.githubusercontent.com/THARUN13055/quick_install_linux/main/pacman.py
 ```
 ## How its work
 
 ```bash
 
-git clone wget https://raw.githubusercontent.com/THARUN13055/quick_install_linux/main/pacman.py
+wget https://raw.githubusercontent.com/THARUN13055/quick_install_linux/main/pacman.py
 
 python3 pacman.py list
 
