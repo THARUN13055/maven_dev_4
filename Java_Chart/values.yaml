@@ -1,6 +1,6 @@
 # This is for namespace
 namespace:
-  name: javaProject
+  name: javaproject
 
 # This is for Deployment
 deploymentName: my-deployment
@@ -25,11 +25,11 @@ ports:
   containerPort: 8080
   
 service:
-  type: Loadbalancer
+  type: LoadBalancer
   port: 80
   targetport: 8080
   nodePort: 30008
-  protocol: tcp
+  protocol: TCP
 
 #hpa
 
@@ -40,7 +40,7 @@ targetCPUUtilizationPercentage: 50
 # roles
 
 rules:
-  - apiGroups: [""]
+  - apiGroups: ["*"]
     resources: ["Pods"]
     verbs: ["get","create","update","list"]
 
