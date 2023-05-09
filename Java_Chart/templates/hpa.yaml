@@ -1,5 +1,5 @@
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoScaler
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
 metadata:
   name: {{ .Values.namespaceName}}
   namespace: {{ .Values.namespace.name}}
@@ -10,4 +10,10 @@ spec:
     name: {{ .Values.deploymentName}}
   minReplicas: {{ .Values.minReplicas}}
   maxReplicas: {{ .Values.maxReplicas}}
-  targetCPUUtilizationPercentage: {{ .Values.targetCPUUtilizationPercentage}}
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 80

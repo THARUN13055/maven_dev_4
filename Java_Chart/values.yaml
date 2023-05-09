@@ -15,7 +15,7 @@ metadata:
   labels:
     app: java
 spec: 
-  imageName: java-app:latest
+  imageName: tharun13055/java-app:latest
   containerName: java-container
   imagePullPolicy: Always
 replicas: 3
