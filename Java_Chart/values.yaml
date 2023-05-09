@@ -1,0 +1,46 @@
+# This is for namespace
+namespace:
+  name: javaProject
+
+# This is for Deployment
+deploymentName: my-deployment
+roleName: my-role
+rolebindingName: my-rolebinding
+hpaName: my-hpa
+serviceName: my-service
+serviceaccountName: my-serviceaccount
+namespaceName: my-namespace
+
+metadata:
+  labels:
+    app: java
+spec: 
+  imageName: java-app:latest
+  containerName: java-container
+  imagePullPolicy: Always
+replicas: 3
+
+
+ports:
+  containerPort: 8080
+  
+service:
+  type: Loadbalancer
+  port: 80
+  targetport: 8080
+  nodePort: 30008
+  protocol: tcp
+
+#hpa
+
+minReplicas: 1
+maxReplicas: 10
+targetCPUUtilizationPercentage: 50
+
+# roles
+
+rules:
+  - apiGroups: [""]
+    resources: ["Pods"]
+    verbs: ["get","create","update","list"]
+

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deploymentName}}
+  namespace: {{ .Values.namespace.name }}
+  labels:
+    {{- toYaml .Values.metadata.labels | nindent 4}}
+spec:
+  replicas: {{ .Values.replicas}}
+  selector:
+    matchLabels:
+      {{- toYaml .Values.metadata.labels | nindent 6}}
+  template:
+    metadata:
+      labels:
+        {{- toYaml .Values.metadata.labels | nindent 8}}
+    spec:
+      serviceAccountName: {{ .Values.serviceaccountName}}
+      containers:
+        - name: {{ .Values.spec.containerName }}
+          image: {{ .Values.spec.imageName}}
+          imagePullPolicy: {{ .Values.spec.imagePullPolicy}}
+          ports:
+            - containerPort: {{ .Values.ports.containerPort }}
