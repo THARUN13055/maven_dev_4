@@ -28,7 +28,6 @@ service:
   type: LoadBalancer
   port: 80
   targetport: 8080
-  nodePort: 30008
   protocol: TCP
 
 #hpa
